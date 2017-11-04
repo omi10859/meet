@@ -87,7 +87,7 @@ DATABASES = {
         'NAME': 'meet',#env('DATABASE_NAME'),
         'USER': 'postgres',#env('DATABASE_USER'),
         'PASSWORD': 'admin.123',#env('DATABASE_PASS'),
-        'HOST': 'localhost',#env('DATABASE_HOST'),
+        'HOST': '10.67.13.88',#env('DATABASE_HOST'),
         'PORT': '5432'#env('DATABASE_PORT')
     }
 }
