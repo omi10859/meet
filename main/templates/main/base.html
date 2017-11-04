@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+
+        <link href="{% static 'main/bootstrap.min.css' %}" rel="stylesheet">
+
+        {% block css %}
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+
+        </header>
+        <section class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6 block-center">
+                    <select placeholder="Select an interest">
+                        <option></option>
+                        <option value="1">test1</option>
+                        <option value="2">test2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="results-container">
+                    <div class="col-xs-12 col-md-6 col-lg-4">
+                        <h3 class="col-xs-12">Test Name</h3>
+                        <p>100 meters</p>
+                    </div>
+                    <div class="col-xs-12 col-md-6 col-lg-4">
+                        <h3 class="col-xs-12">Test Name</h3>
+                        <p>100 meters</p>
+                    </div>
+                    <div class="col-xs-12 col-md-6 col-lg-4">
+                        <h3 class="col-xs-12">Test Name</h3>
+                        <p>100 meters</p>
+                    </div>
+                    <div class="col-xs-12 col-md-6 col-lg-4">
+                        <h3 class="col-xs-12">Test Name</h3>
+                        <p>100 meters</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="{% static 'main/js/jquery.min.js' %}"></script>
+        <script src="{% static 'main/js/bootstrap.min.js' %}"></script>
+    </body>
+</html>
