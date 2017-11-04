@@ -11,6 +11,13 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+#import environ
+
+#root = environ.Path(__file__) - 3 # three folder back (/a/b/c/ - 3 = /)
+#env = environ.Env(DEBUG=(bool, False),) # set default values and casting
+#environ.Env.read_env() # reading .env file
+
+#SITE_ROOT = root()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '6fl&evnx3kxv$7kix_sqg)fx2yu(4s*v3+=%li^c=pqk35^vyk'
+SECRET_KEY = '6fl&evnx3kxv$7kix_sqg)fx2yu(4s*v3+=%li^c=pqk35^vyk'#env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'main'
 ]
 
 MIDDLEWARE = [
@@ -75,8 +83,12 @@ WSGI_APPLICATION = 'meet.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'meet',#env('DATABASE_NAME'),
+        'USER': 'postgres',#env('DATABASE_USER'),
+        'PASSWORD': 'admin.123',#env('DATABASE_PASS'),
+        'HOST': 'localhost',#env('DATABASE_HOST'),
+        'PORT': '5432'#env('DATABASE_PORT')
     }
 }
 
@@ -118,3 +130,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+#Login redirect
+LOGIN_REDIRECT_URL = '/portal/'
+
+#MEDIA Directory for uploads
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
